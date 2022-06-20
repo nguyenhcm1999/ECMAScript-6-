@@ -16,6 +16,10 @@
 
 // Code block: if else, loop, {}, ...
 
+// Code thuần: Var
+// Thư viện Babel: Const, Let
+// Sử dụng const khi định nghĩa biến và không gán lại biến đó
+// Sử dụng let khi cần gán lại giá trị cho biến
 if(true){
     var course = 'Javascript basic!';
     // let/const course = 'Javascript basic!'; sẽ báo lỗi is not defined sẽ không thể truy cập
@@ -57,3 +61,79 @@ const b = {
 //gán được thuộc tính name của obj gán cho b
 b.name ='PHP'; 
 console.log(b.name)
+
+const courseName = 'JavaScript';
+const courseName2 = 'PHP';
+// const description = 'Course name: ' + courseName;
+// sử dụng toán tử + để nối chuỗi, còn template string dùng nội suy
+// `\n` là xuống dòng `\\` là \
+const description = `Course name: ${courseName} ${courseName2}`
+// const description = `Template string noi suy voi: \${}`
+console.log(description);
+
+//multi-lines string
+const lines = 'Line 1\n' 
+    + 'Line 2\n'
+    + 'Line 3\n'
+console.log(lines)
+//template string
+const lines1 = `Line 1
+Line 2
+Line 3
+`;
+console.log(lines1);
+
+
+// Function Declaration
+function logger(log){
+    console.log(log);
+}
+
+logger('Mesage...')
+
+// expression function
+const logger1 = function(log){
+    console.log(log);
+}
+
+logger1('Mesage...1')
+
+// arrow function, với 1 tham số có thể bỏ ()
+const logger2 = log => {
+    console.log(log);
+}
+
+logger2('Message...arrow function')
+
+//sẽ được hiểu sau dấu => là return a+b, nhưng cú pháp =>{} sẽ sai nên nếu
+const sum = (a,b)=>a+b;
+console.log(sum(2,2));
+// muốn đặt bên trong 1 obj thì phải có () bọc 
+const sum1 = (a,b)=> ({a:a,b:b});
+console.log(sum1(2,2));
+
+//this chính là course2
+const abc = {
+    name: 'Javascript basic!',
+    getName:()=>{
+        return this;
+    }
+};
+//undefined
+console.log(abc.getName());
+
+const Course3 = function(name, price){
+    this.name = name;
+    this.price = price;
+}
+
+const jsCourse3 = new Course3('Javascript',1000);
+console.log(jsCourse3);
+
+const Course4 = (name, price)=>{
+    this.name = name;
+    this.price = price;
+}
+//Lỗi course4 is not a constructor
+const jsCourse4 = new Course4('Javascript',1000);
+console.log(jsCourse3);
