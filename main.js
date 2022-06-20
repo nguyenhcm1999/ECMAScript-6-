@@ -130,10 +130,74 @@ const Course3 = function(name, price){
 const jsCourse3 = new Course3('Javascript',1000);
 console.log(jsCourse3);
 
-const Course4 = (name, price)=>{
+
+//Lỗi course4 is not a constructor
+// const Course4 = (name, price)=>{
+//     this.name = name;
+//     this.price = price;
+// }
+
+// const jsCourse4 = new Course4('Javascript',1000);
+// console.log(jsCourse4);
+
+
+// viết sẽ rối khi có quá nhiều phương thức, thuộc tính, biến 
+function Course4(name,price){
     this.name = name;
     this.price = price;
+
+    this.getName = function(){
+        return this.name;
+    }
+
+    const isSuccess = false;
 }
-//Lỗi course4 is not a constructor
-const jsCourse4 = new Course4('Javascript',1000);
-console.log(jsCourse3);
+
+// class Course4 {
+//     constructor(name,price) {
+//         this.name = name;
+//         this.price = price;
+//     }
+
+//     getName(){
+//         return this.name;
+//     }
+
+//     getPrice(){
+//         return this.price;
+//     }
+
+//     // run(){
+//     //     const isSuccess = false;
+//     //     if(...) {
+//     //         isSuccess = true;
+//     //     }
+//     // }
+// }
+
+const phpCourse = new Course4('PHP',1000);
+const jsCourse = new Course4('JS',1000);
+
+console.log(phpCourse);
+console.log(jsCourse);
+
+
+
+
+function Person(name,age){
+    this.name = name;
+    this.age = age;
+}
+const person = new Person('Long', 22);
+console.log(`Tên: ${person.name}, tuổi: ${person.age}`);
+
+
+class Person1 {
+    constructor(name,age){
+        this.name = name;
+        this.age = age;
+    }
+}
+const person1 = new Person1('Long', 22);
+console.log(`Tên: ${person1.name}, tuổi: ${person1.age}`);
+
