@@ -191,7 +191,7 @@ function Person(name,age){
 const person = new Person('Long', 22);
 console.log(`Tên: ${person.name}, tuổi: ${person.age}`);
 
-
+//tạm hiểu lược bỏ chữ function vì nó trùng rồi
 class Person1 {
     constructor(name,age){
         this.name = name;
