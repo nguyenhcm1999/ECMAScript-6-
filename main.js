@@ -201,3 +201,4 @@ class Person1 {
 const person1 = new Person1('Long', 22);
 console.log(`Tên: ${person1.name}, tuổi: ${person1.age}`);
 
+//test
