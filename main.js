@@ -201,6 +201,104 @@ class Person1 {
 const person1 = new Person1('Long', 22);
 console.log(`Tên: ${person1.name}, tuổi: ${person1.age}`);
 
-//test
 
-console.log(person1)
+class meo {
+    constructor(ten,mausac){
+        this.ten = ten,
+        this.mausac = mausac
+    }
+    keu(){
+        console.log(`${this.ten} ${this.mausac} kêu meo meo`)
+    }
+}
+
+var boo = new meo('boo','đen');
+boo.keu()
+boo.mausac = 'trắng';
+boo.keu()
+
+
+function logger(log) {
+    if (typeof log === 'undefined') {
+        log = 'Gia tri mac dinh'
+    }
+    console.log(log)
+}
+logger()
+logger(undefined)
+
+// default parameter vaules 
+function logger(log = 'Gia tri mac dinh') {
+    console.log(log)
+    }
+logger(undefined)
+
+// tham số thứ 2 không bắt buộc phải truyền vào
+// function logger(log, type = 'log'){
+//     console[type](log);
+// }
+// logger('Message ...', 'warn')
+
+
+
+// Enhanced object literals
+//1. Định nghĩa key: value cho object
+//2. Định nghĩa method cho object
+//3. Định nghĩa key cho object dưới dạng biến
+
+var name ='Javascript';
+var price = 1000;
+
+var course = {
+    name,
+    price,
+    getName(){
+        return name;
+    }
+}
+
+console.log(course.getName())
+
+
+var fieldName ='new-name';
+var fieldPrice ='price';
+
+var course = {
+    //chỉ định javascript là name
+    name: 'Javascript',
+    //lấy value từ biến fieldName
+    [fieldName]:'Javascript',
+    [fieldPrice]:1000
+};
+console.log(course)
+
+
+//Destructuring với object và array
+
+var array = ['JavaScript1','PHP','Ruby']
+
+var [a] = array;
+
+console.log(a)
+
+//rest parameters lấy ra phần còn lại
+var [a,d, ...rest] = array
+console.log(rest)
+
+
+var course = {
+    name:'javascript',
+    price:1000,
+    image: 'image-address',
+    children:{
+        name:'ReactJS',
+    }
+}
+
+var {name,... newObject} = course;
+console.log(name)
+console.log(newObject)
+
+var {name:parentName,children:{name: childrenName}} = course;
+console.log(parentName);
+console.log(childrenName);
