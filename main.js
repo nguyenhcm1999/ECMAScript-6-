@@ -188,7 +188,7 @@ function Person(name,age){
     this.name = name;
     this.age = age;
 }
-const person = new Person('Long', 22);
+var person = new Person('Long', 22);
 console.log(`Tên: ${person.name}, tuổi: ${person.age}`);
 
 //tạm hiểu lược bỏ chữ function vì nó trùng rồi
@@ -281,8 +281,11 @@ var [a] = array;
 
 console.log(a)
 
-//rest parameters lấy ra phần còn lại
-var [a,d, ...rest] = array
+var [a, ,c] = array
+console.log(a,c)
+//rest parameters lấy ra phần còn lại, sử dụng nó khi kết hợp với Destructuring
+// và sử dụng nó trong việc định nghĩa ra tham số
+var [d, ...rest] = array
 console.log(rest)
 
 
@@ -302,3 +305,75 @@ console.log(newObject)
 var {name:parentName,children:{name: childrenName}} = course;
 console.log(parentName);
 console.log(childrenName);
+
+var {name, description1 = ' default description'} = course
+
+console.log(description1)
+
+
+function logger5(a, ...params){
+    //khi sử dụng toán tử rest thì nó là 1 array
+    console.log(params);
+    console.log(a)
+    // console.log(arguments) 
+}
+
+console.log(logger5(1,2,3,4,5))
+
+
+function logger6({name, price, ...rest}) {
+    console.log(name);
+    console.log(price);
+    console.log(rest);
+}
+
+logger6({
+    name : 'Javascript',
+    price: 1000,
+    description: 'Description content'
+})
+
+function logger7([a,b, ...rest]) {
+    console.log(a);
+    console.log(b);
+    console.log(rest);
+}
+
+logger7([2,6, 12, 3, 4, 5])
+
+
+// Toán tử giải Spread (...)
+
+var array1 = ['javascript', 'Ruby','PHP']
+
+var array2 = ['ReactJS','Dart']
+
+var array3 = [...array2, ...array1]
+
+console.log(array3)
+
+
+var object1 = {
+    name:'Javascript'
+};
+
+var object2 = {
+    price: 1000
+}
+
+var object3 = {
+    ...object1, ...object2
+}
+
+console.log(object3);
+
+
+var array = ['Javscript', 'PHP','Ruby','ReactJS']
+
+function logger8(...rest){
+    for (var i = 0; i<rest.length;i++){
+        console.log(rest[i])
+    }
+}
+// Khi gọi đến hàm, truyền đối số, là spreads, giải nó trong 1 array hoặc 1 object khác
+logger8(...array)
