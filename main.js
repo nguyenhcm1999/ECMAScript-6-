@@ -441,7 +441,7 @@ console.log(html)
 // import viết thẳng chữ mà không có destructuring thì hiểu ngay chúng ta đang
 // import cái mà module đang export default
 
-import {logger11} from './logger/index.js'
+import logger11 from './logger/index.js'
  
 // import constants from './constants.js' nó sẽ báo lôi vì không phải là export default 
 // nên không thể import constant được. 
@@ -466,3 +466,35 @@ import {logger11} from './logger/index.js'
 //  import {logger12} from './logger/index.js'
 // logger12('Test message...',constants.TYPE_WARN)
 
+
+//Optional chaining cú pháp bao gồm ? và . (?.)
+
+var obj = {
+    name: 'Alice',
+    cat: {
+        name:'Dinah',
+        cat2: {
+            name:'Dinah2',
+            cat3: {
+                name:'Dinah3',
+            }
+        }
+    }
+};
+
+//thường thì dùng obj.cat nhưng cũng có thể dùng
+obj['cat']?.['cat2']
+
+if(obj.cat?.cat2?.cat3){
+    console.log(obj.cat.cat2.cat3.name)
+}
+
+
+//enhanced object literal
+var obj = {
+    getName(value){
+        console.log(value)
+    }
+}
+
+obj.getName?.(123)
