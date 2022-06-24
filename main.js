@@ -441,8 +441,8 @@ console.log(html)
 // import viết thẳng chữ mà không có destructuring thì hiểu ngay chúng ta đang
 // import cái mà module đang export default
 
-import logger11 from './logger/index.js'
-
+import {logger11} from './logger/index.js'
+ 
 // import constants from './constants.js' nó sẽ báo lôi vì không phải là export default 
 // nên không thể import constant được. 
 
@@ -462,7 +462,7 @@ import logger11 from './logger/index.js'
 //  } from './constants.js'
 // logger11('Test message...',TYPE_ERROR)
  
-
+// ý tưởng là không muốn import logger từ file logger.js nữa
 //  import {logger12} from './logger/index.js'
 // logger12('Test message...',constants.TYPE_WARN)
 
