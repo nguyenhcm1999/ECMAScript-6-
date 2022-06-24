@@ -438,17 +438,31 @@ console.log(html)
 
 // Modules: Import / Export
 
-// logger11 chính là giá trị import default của logger js
- import logger11 from './logger/index.js'
-//  import {logger12} from './logger/index.js'
-//  {
-//     TYPE_LOG,
-//     TYPE_WARN,
-//     TYPE_ERROR
-//  }
+// import viết thẳng chữ mà không có destructuring thì hiểu ngay chúng ta đang
+// import cái mà module đang export default
+
+import logger11 from './logger/index.js'
+
+// import constants from './constants.js' nó sẽ báo lôi vì không phải là export default 
+// nên không thể import constant được. 
+
+// Nếu không muốn sử dụng destructuring thì có thể sử dụng * as ... nó lấy ra tất cả các
+// export con thành 1 object dạng module, bên trong cung cấp các value đã import ra ngoài
  import * as constants from './constants.js'
 
-console.log(constants);
-logger11('Test message...',constants.TYPE_ERROR)
-// logger12('Test message...',constants.TYPE_WARN)
+ console.log(constants);
+ logger11('Test message...',constants.TYPE_ERROR)
  
+// Khi import destructuring như sau thì hiểu là đang import những cái không phải là 
+// export defautl mà chỉ là export const
+// import  {
+//     TYPE_LOG,
+//     TYPE_WARN, 
+//     TYPE_ERROR
+//  } from './constants.js'
+// logger11('Test message...',TYPE_ERROR)
+ 
+
+//  import {logger12} from './logger/index.js'
+// logger12('Test message...',constants.TYPE_WARN)
+
