@@ -125,9 +125,14 @@ console.log(abc.getName());
 const Course3 = function(name, price){
     this.name = name;
     this.price = price;
+    this.changeName = function(name){
+        this.name = name
+    }
 }
 
 const jsCourse3 = new Course3('Javascript',1000);
+console.log(jsCourse3);
+jsCourse3.changeName("PHP")
 console.log(jsCourse3);
 
 
@@ -339,7 +344,7 @@ function logger7([a,b, ...rest]) {
     console.log(rest);
 }
 
-logger7([2,6, 12, 3, 4, 5])
+logger7([2, 6, 12, 3, 4, 5])
 
 
 // Toán tử giải Spread (...)
@@ -370,10 +375,80 @@ console.log(object3);
 
 var array = ['Javscript', 'PHP','Ruby','ReactJS']
 
-function logger8(...rest){
+function logger8(a,b, ...rest){
     for (var i = 0; i<rest.length;i++){
         console.log(rest[i])
+        // Ruby, ReactJS
     }
 }
 // Khi gọi đến hàm, truyền đối số, là spreads, giải nó trong 1 array hoặc 1 object khác
+// bỏ đi dấu []
 logger8(...array)
+
+function logger9(...a){
+    for(var i = 0; i<a.length;i++){
+        console.log(a[i])
+    }
+    console.log(a)
+}
+
+logger9(...array)
+
+
+var logger0 =[...array]
+console.log(logger0)
+
+
+//Tagged template literals
+
+function highlight(...rest){
+    console.log(rest)
+}
+
+var brand = 'F8';
+var course = 'Javascript';
+
+highlight`Học lập trình ${course} tại ${brand}!`;
+
+
+function highlight1([first, ...strings], ...values){
+    console.log('first',first)
+    console.log('strings',strings)
+    console.log('values',values)
+    // console.log(strings.shift())
+    return values.reduce(
+        // giải [first] bỏ ngoặc vuông
+        (acc,curr) =>[...acc,`<span>${curr}</span>`,strings.shift()],
+        [first])
+        .join('')
+    // => {return abc} viết ngắn là => abc
+    // return strings.reduce(
+    //     (acc,curr) =>[...acc,`<span>${values.shift()}</span>`,curr],
+    //     [first])
+    
+}
+  
+var brand = 'F8';
+var course = 'Javascript';  
+
+var html = highlight1`Học lập trình ${course} tại ${brand}!`;
+
+console.log(html)
+
+
+// Modules: Import / Export
+
+// logger11 chính là giá trị import default của logger js
+ import logger11 from './logger/index.js'
+//  import {logger12} from './logger/index.js'
+//  {
+//     TYPE_LOG,
+//     TYPE_WARN,
+//     TYPE_ERROR
+//  }
+ import * as constants from './constants.js'
+
+console.log(constants);
+logger11('Test message...',constants.TYPE_ERROR)
+// logger12('Test message...',constants.TYPE_WARN)
+ 
