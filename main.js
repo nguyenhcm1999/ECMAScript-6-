@@ -528,8 +528,22 @@ course.key0 = false
 course.start()
 console.log(course)
 
-var test1 = {a:'aaa',b:{'bb':'bbb'}}
+var test1 = {a:'aaa',b:{'bb':'bbb'},
+        currentI : 0,
+        song: [
+            {ccc:'ccc'},
+            {ddd:'ddd'},
+            {eee:'eee'},
+        ],
+        abc: function(){
+            console.log(test1.song[test1.currentI])
+            return test1.song[test1.currentI]
+        }
+}
+
 console.log(test1.a)
 console.log(test1.b.bb) // bbb
 console.log(test1.b['bb']) // bbb
 console.log(test1.b)
+
+test1.abc()
