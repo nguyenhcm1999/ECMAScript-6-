@@ -146,7 +146,7 @@ console.log(jsCourse3);
 // console.log(jsCourse4);
 
 
-// viết sẽ rối khi có quá nhiều phương thức, thuộc tính, biến 
+// viết sẽ rối khi có quá nhiều thuộc tính,phương thức, biến 
 function Course4(name,price){
     this.name = name;
     this.price = price;
@@ -498,3 +498,32 @@ var obj = {
 }
 
 obj.getName?.(123)
+
+
+// thêm thuộc tính cho obj
+var course = {
+    a: {},
+    chenvoobject :function(){
+        this.a['Key1'] = true
+},
+    // aaa: function(){Object.defineProperty(course,"fff",{value: "123"})},
+    defi: function(){
+        Object.defineProperty(course, "key2", {
+            configurable: false,
+            value: "2"
+        });
+    },
+    start(){
+        course.chenvoobject()
+        course.defi()
+    }
+}
+
+course.a['Key3'] = false
+Object.defineProperty(course, "Key4", {
+    configurable: false,
+    value: "4"
+});
+course.key0 = false
+course.start()
+console.log(course)
