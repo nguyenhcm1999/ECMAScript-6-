@@ -527,3 +527,9 @@ Object.defineProperty(course, "Key4", {
 course.key0 = false
 course.start()
 console.log(course)
+
+var test1 = {a:'aaa',b:{'bb':'bbb'}}
+console.log(test1.a)
+console.log(test1.b.bb) // bbb
+console.log(test1.b['bb']) // bbb
+console.log(test1.b)
