@@ -455,12 +455,12 @@ import logger11 from './logger/index.js'
  
 // Khi import destructuring như sau thì hiểu là đang import những cái không phải là 
 // export defautl mà chỉ là export const
-// import  {
-//     TYPE_LOG,
-//     TYPE_WARN, 
-//     TYPE_ERROR
-//  } from './constants.js'
-// logger11('Test message...',TYPE_ERROR)
+import  {
+    TYPE_LOG,
+    TYPE_WARN, 
+    TYPE_ERROR
+ } from './constants.js'
+logger11('Test message...',TYPE_LOG)
  
 // ý tưởng là không muốn import logger từ file logger.js nữa
 //  import {logger12} from './logger/index.js'
@@ -528,22 +528,57 @@ course.key0 = false
 course.start()
 console.log(course)
 
-var test1 = {a:'aaa',b:{'bb':'bbb'},
+var test1 = {a:'aaa',b:{'bb':'bbb'}, c:{'cc':'ccccc'},d:{'dd':'ddd'},f:'fff',
+    g:'gg',h:{'hh':'hhhhh'},
         currentI : 0,
-        song: [
+        songs: [
             {ccc:'ccc'},
             {ddd:'ddd'},
             {eee:'eee'},
         ],
+        zzz:{
+            vvv:{
+                qqq:[
+                    {rrr:'rrr'},
+                    {ttt:'ttt'},
+                    {yyy:'yyy'}
+                ]
+            }
+        },
         abc: function(){
-            console.log(test1.song[test1.currentI])
-            return test1.song[test1.currentI]
+            console.log(test1.songs[1])
+            return test1.songs[test1.currentI]
         }
 }
-
+var test2 = {}
 console.log(test1.a)
 console.log(test1.b.bb) // bbb
 console.log(test1.b['bb']) // bbb
 console.log(test1.b)
-
+console.log(test1.songs[test1.currentI])
+console.log(test1.zzz.vvv.qqq[1])
+test2[test1.a] =[test1.b]
+test2[test1.a].push(test1.c)
+test2[test1.d] =test1.c
+test2[test1.f] =test1.c
+test2[test1.g]=[test1.h]
+test1.f ='abc'
+console.log(test1)
+console.log(test2)
+console.log(test1.a)
 test1.abc()
+
+
+console.log(new Date().getFullYear())
+console.log(new Date())
+
+function getRandNumbers(min,max,length){
+    var valueRandom = Math.random() * (max-min) + min;
+    var arr = [];
+    for (var i = 0; i < length ; i++){
+        arr[i] = valueRandom;
+    }
+    return arr;
+}
+
+console.log(getRandNumbers(1,10,3))
