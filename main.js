@@ -555,6 +555,7 @@ console.log(test1.a)
 console.log(test1.b.bb) // bbb
 console.log(test1.b['bb']) // bbb
 console.log(test1.b)
+console.log(test1['b'])
 console.log(test1.songs[test1.currentI])
 console.log(test1.zzz.vvv.qqq[1])
 test2[test1.a] =[test1.b]
@@ -568,9 +569,12 @@ console.log(test2)
 console.log(test1.a)
 test1.abc()
 for(var key in test1) {console.log(test1[key])}
+for(var key in test1) {console.log(key)}
 
 var test3 = [{name:'JS',price:10},{name:'React',price:10}]
 for(var key in test3) {console.log(key)}
+for(var key of test3) {console.log(key)}
+
 
 console.log(new Date().getFullYear())
 console.log(new Date())
