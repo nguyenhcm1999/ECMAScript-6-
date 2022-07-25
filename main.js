@@ -572,8 +572,8 @@ for(var key in test1) {console.log(test1[key])}
 for(var key in test1) {console.log(key)}
 
 var test3 = [{name:'JS',price:10},{name:'React',price:10}]
-for(var key in test3) {console.log(key)}
-for(var key of test3) {console.log(key)}
+for(var key in test3) {console.log(key)} //0 1
+for(var key of test3) {console.log(key)} // {} {}
 
 
 console.log(new Date().getFullYear())
