@@ -721,4 +721,6 @@ var watchList = [
   // Expected results
   console.log(calculateRating(watchList));
 
-  
+
+  let password = 'short';
+  console.log(password.length > 7 && 'Strong' || 'Weak');
