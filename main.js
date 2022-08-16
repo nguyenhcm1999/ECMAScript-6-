@@ -460,7 +460,7 @@ import  {
     TYPE_WARN, 
     TYPE_ERROR
  } from './constants.js'
-logger11('Test message...',TYPE_LOG)
+logger11('Test message...',TYPE_WARN)
  
 // ý tưởng là không muốn import logger từ file logger.js nữa
 //  import {logger12} from './logger/index.js'
@@ -723,4 +723,4 @@ var watchList = [
 
 
   let password = 'short';
-  console.log(password.length > 7 && 'Strong' || 'Weak');
+  console.log(password.length > 7 &&  'Strong' || 'Weak');
