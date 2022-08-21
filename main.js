@@ -223,26 +223,26 @@ boo.mausac = 'trắng';
 boo.keu()
 
 
-function logger(log) {
+function logger321(log) {
     if (typeof log === 'undefined') {
         log = 'Gia tri mac dinh'
     }
     console.log(log)
 }
-logger()
-logger(undefined)
+logger321()
+logger321(undefined)
 
-// default parameter vaules 
-function logger(log = 'Gia tri mac dinh') {
+// default parameter values 
+function logger123(log = 'Gia tri mac dinh') {
     console.log(log)
     }
-logger(undefined)
+logger123(undefined)
 
 // tham số thứ 2 không bắt buộc phải truyền vào
-// function logger(log, type = 'log'){
-//     console[type](log);
-// }
-// logger('Message ...', 'warn')
+function logger222(log, type = 'log'){
+    console[type](log);
+}
+logger222('Message ...', 'warn')
 
 
 
@@ -372,10 +372,14 @@ var object3 = {
 
 console.log(object3);
 
+// Sử dụng rest trong việc định nghĩa ra tham số, còn khi truyền đối số, gọi 
+// đến hàm truyền đối số thì nó sẽ spread, khi sử dụng nó trong việc giải nó trong
+// 1 array, hoặc 1 object khác.
 
 var array = ['Javscript', 'PHP','Ruby','ReactJS']
 
 function logger8(a,b, ...rest){
+    console.log(rest)
     for (var i = 0; i<rest.length;i++){
         console.log(rest[i])
         // Ruby, ReactJS
@@ -414,7 +418,7 @@ highlight`Học lập trình ${course} tại ${brand}!`;
 function highlight1([first, ...strings], ...values){
     console.log('first',first)
     console.log('strings',strings)
-    console.log('values',values)
+    console.log('values',values) // ['Javasciprt', 'F8']
     // console.log(strings.shift())
     return values.reduce(
         // giải [first] bỏ ngoặc vuông
