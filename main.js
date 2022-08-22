@@ -414,7 +414,6 @@ var course = 'Javascript';
 
 highlight`Học lập trình ${course} tại ${brand}!`;
 
-
 function highlight1([first, ...strings], ...values){
     console.log('first',first)
     console.log('strings',strings)
