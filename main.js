@@ -727,3 +727,80 @@ var watchList = [
 
   let password = 'short';
   console.log(password.length > 7 &&  'Strong' || 'Weak');
+
+
+  var person = {
+    name:'hue',
+    getName: function(){
+        return this.name
+     }
+}
+
+console.log(person.getName()) // 'hue'
+
+var getNamePerson = person.getName.bind(person)
+console.log(getNamePerson())
+
+// Từ khóa this trong js đề cập đến đối tượng mà nó thuộc về
+// Đặc tính
+// 1. Trong một phương thức, this tham chiếu tới đối tượng truy cập phương thức (đối tượng trước dấu .)
+// 2. Đứng ngoài phương thức, this tham chiếu tới đối tượng global (window)
+
+// Lưu ý
+// this trong hàm tạo là đại diện cho đối tượng sẽ được tạo
+// this trong 1 hàm là undefined khi ở strict mode
+// Các phương thức bind() call() apply() có thể tham chiếu this tới đối tượng khác
+
+
+// Khi 1 thuộc tính là 1 hàm nhưng nó thuộc 1 đối tượng thì thuộc tính đó sẽ được 
+// gọi là phương thức
+// This trỏ đến đối tượng mà nó thuộc về
+ function Car (name, color, weight) {
+    this.name = name
+    this.color = color
+    this.weight = weight
+    // this.run = function() {
+    //     console.log('Running ...', this)
+    // }
+ }
+
+ Car.prototype.play = function() {
+    function test() {
+        console.log(this)
+    }
+    test()
+ }
+
+ var mercedesS450 = new Car('Mercedes S450', 'Black', '1000kg')
+ 
+//   console.log(mercedesS450.run())
+  console.log(mercedesS450.play())
+
+
+// Ví dụ về this trong arrow function
+  Car.prototype.play = function() {
+    // this
+    // Context
+    // Đối với arrow function thì thằng this sẽ trả về chính cái this bên ngoài
+    // chính là ô tô
+    var test = () => {
+        console.log(this)
+    }
+    test()
+ }
+
+ console.log(mercedesS450.play())
+
+ // Ví dụ về this trong function
+
+ Car.prototype.play = function() {
+    // Context
+    function test() {
+        console.log(this)
+    }
+    test()
+ }
+
+ var mercedesS4501 = new Car('Mercedes S450', 'Black', '1000kg')
+
+ console.log(mercedesS4501.play())
