@@ -759,9 +759,9 @@ console.log(getNamePerson())
     this.name = name
     this.color = color
     this.weight = weight
-    // this.run = function() {
-    //     console.log('Running ...', this)
-    // }
+    this.run = function() {
+        console.log('Running ...', this)
+    }
  }
 
  Car.prototype.play = function() {
@@ -770,7 +770,7 @@ console.log(getNamePerson())
 
  var mercedesS450 = new Car('Mercedes S450', 'Black', '1000kg')
  
-//   console.log(mercedesS450.run())
+  console.log(mercedesS450.run())
   console.log(mercedesS450.play())
 
 
@@ -803,3 +803,7 @@ console.log(getNamePerson())
  var mercedesS4501 = new Car('Mercedes S450', 'Black', '1000kg')
 
  console.log(mercedesS4501.play())
+
+
+ console.log('JS ABC'.indexOf('JS',1) !== -1)
+ console.log(-1 !== -1)
