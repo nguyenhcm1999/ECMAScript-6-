@@ -41,7 +41,7 @@ if(true){
  }
 
 
-// var a; a=1; nhất định nghĩa biến lên trên đầu, var được hỗ trợ hosting còn let/ const không được
+// var a; a=1; nhất định nghĩa biến lên trên đầu, var được hỗ trợ hoisting còn let/ const không được
 
 a =1;
 var a;
@@ -765,10 +765,7 @@ console.log(getNamePerson())
  }
 
  Car.prototype.play = function() {
-    function test() {
         console.log(this)
-    }
-    test()
  }
 
  var mercedesS450 = new Car('Mercedes S450', 'Black', '1000kg')
@@ -780,7 +777,9 @@ console.log(getNamePerson())
 // Ví dụ về this trong arrow function
   Car.prototype.play = function() {
     // this
-    // Context
+    // Context, mỗi hàm luôn có context riêng, môi trường để chạy hay ngữ cảnh là context
+    // Arrow function không có context riêng của nó, nó sẽ sử dụng context của
+    // đối tượng bên ngoài chứa nó
     // Đối với arrow function thì thằng this sẽ trả về chính cái this bên ngoài
     // chính là ô tô
     var test = () => {
