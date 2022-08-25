@@ -755,6 +755,10 @@ console.log(getNamePerson())
 // Khi 1 thuộc tính là 1 hàm nhưng nó thuộc 1 đối tượng thì thuộc tính đó sẽ được 
 // gọi là phương thức
 // This trỏ đến đối tượng mà nó thuộc về
+
+// phân biệt các hàm/method được gọi. Được gọi qua object.method() thì this là object.
+// Được gọi theo tenHam() thì this là window. Mỗi hàm luôn có context riêng, hàm trong method 
+//cũng có context riêng của nó.
  function Car (name, color, weight) {
     this.name = name
     this.color = color
@@ -807,3 +811,82 @@ console.log(getNamePerson())
 
  console.log('JS ABC'.indexOf('JS',1) !== -1)
  console.log(-1 !== -1)
+
+
+// So sánh ===
+// 1. If type(x) is different from type(y), return false
+// 2. If type(x) is Number or BigInt, then
+//      a. Return !Type(x)::equal(x,y)
+// 3. Return !SameValueNonNumeric(x,y) nghĩa là chúng ta so sánh === của những giá trị không phải là number
+
+// Number::equal(x,y)
+
+// 1. If x is NaN, return false.
+// 2. If y is NaN, return false.
+
+// Ví dụ NaN === 'asdasd' false
+// NaN === 423423 false
+// NaN === NaN false
+
+// So sánh == 
+// Nếu cùng kiểu dữ liệu thì nó sẽ chuyển từ == về thành ===
+// 1. If type(x) is the same as type(y)
+// return the result of performing Strict Equality Comparison x === y
+
+// Nếu khác kiểu dữ liệu
+// 2. If x is null and y is undefined, return true
+// 3. If x is undefined and y is null, return true
+
+// Nếu x là số, y là chuỗi, thì sẽ ép kiểu y về số: 1 == '1'
+// 5. If type(x) is Number and type(y) is String, return the result of the comparison x ==! ToNumber(y)
+
+// Nếu x là kiểu dữ liệu boolean nó sẽ ép kiểu về số rồi so sánh với y
+// 9. If type(x) is Boolean, return the result of comparison ToNumber(x) ==! y
+// Ví dụ Number(true) == 1, Number(false) == 0
+
+var inputArray = [3, 6, -2, -5, 7, 3]
+let adjacentElementsProduct = (inputArray) =>{
+    let len = inputArray.length;
+    let max = 0;
+    for(let i = 0; i < len - 1; i++){
+        let largets = inputArray[i] * inputArray[i+1];
+        if(max < largets) max = largets;
+    }
+    return max;
+    
+}
+
+console.log(adjacentElementsProduct(inputArray))
+
+let adjacentElementsProduct1 = (inputArray, len = inputArray.length, guard = inputArray[0] * inputArray[1]) => {
+    for(let i = 1; i < len - 1; i++){
+        guard = Math.max(guard, inputArray[i] * inputArray[i+1]);
+    }
+    return guard;
+}
+
+console.log(adjacentElementsProduct1(inputArray))
+
+
+console.log(Number(false))
+
+console.log(Number(true))
+
+var score = [700, 8, 9, 10, 3];
+
+score.sort(function(a,b){
+    console.log(`comparing ${a},${b}`)
+    return a-b
+})
+
+console.log(score)
+
+//  Nếu compareFunction(a, b) trả về < 0 thì a sẽ đứng trước b.
+// Nếu compareFunction(a, b) trả về > 0 thì a sẽ đứng sau b.
+// Nếu compareFunction(a, b) trả về = 0 thì không sắp xếp (giữ nguyên thứ tự).
+var yyy=['a','A','a', 'Apples', 'Watermelon', 'Bananas', 'cherries','b', 'Ba', 'c', 'd', 'CC']
+console.log(yyy.sort(function(a,b){return a.localeCompare(b,'en',{sensitivity:'base'})}))
+console.log(yyy.sort((a,b)=> a.localeCompare(b,'en',{ sensitivity:'base'})))
+console.log( 0 ||  'weak')
+
+console.log('aaa'.localeCompare('A','en',{sensitivity:'base'}))
