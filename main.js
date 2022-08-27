@@ -763,7 +763,7 @@ console.log(getNamePerson())
     this.name = name
     this.color = color
     this.weight = weight
-    run = function() {
+    this.run = function() {
         console.log('Running ...', this)
     }
  }
