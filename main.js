@@ -763,7 +763,7 @@ console.log(getNamePerson())
     this.name = name
     this.color = color
     this.weight = weight
-    this.run = function() {
+    run = function() {
         console.log('Running ...', this)
     }
  }
@@ -776,11 +776,9 @@ console.log(getNamePerson())
  
   console.log(mercedesS450.run())
   console.log(mercedesS450.play())
-
-
 // Ví dụ về this trong arrow function
   Car.prototype.play = function() {
-    // this
+    // console.log(this.name)
     // Context, mỗi hàm luôn có context riêng, môi trường để chạy hay ngữ cảnh là context
     // Arrow function không có context riêng của nó, nó sẽ sử dụng context của
     // đối tượng bên ngoài chứa nó
@@ -799,7 +797,7 @@ console.log(getNamePerson())
  Car.prototype.play = function() {
     // Context
     function test() {
-        console.log(this)
+        console.log(this) // this sẽ là đối tượng window
     }
     test()
  }
@@ -890,3 +888,4 @@ console.log(yyy.sort((a,b)=> a.localeCompare(b,'en',{ sensitivity:'base'})))
 console.log( 0 ||  'weak')
 
 console.log('aaa'.localeCompare('A','en',{sensitivity:'base'}))
+
