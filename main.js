@@ -41,9 +41,10 @@ if(true){
  }
 
 
-// var a; a=1; nhất định nghĩa biến lên trên đầu, var được hỗ trợ hoisting còn let/ const không được
+// var a; a=1; nhất định nghĩa biến lên trên đầu, var được hỗ trợ hoisting còn 
+// let/ const khi được hoisted không được tạo giá trị và được đưa vào temporal dead zone
 
-a =1;
+a =2;
 var a;
 // let a; không thể truy cập được a trước khi khởi tạo nó
 // const a; thiếu định nghĩa ra thằng const
@@ -796,8 +797,9 @@ console.log(getNamePerson())
 
  Car.prototype.play = function() {
     // Context
+    console.log(this) 
+// this sẽ là đối tượng window, nhưng trong strict mode sẽ là undefined
     function test() {
-        console.log(this) // this sẽ là đối tượng window
     }
     test()
  }
@@ -865,6 +867,15 @@ let adjacentElementsProduct1 = (inputArray, len = inputArray.length, guard = inp
 
 console.log(adjacentElementsProduct1(inputArray))
 
+var testarr = [1,2,4,5,6]
+var functest = function(testarr) {
+    var leng = testarr.length;
+    for(let i = 0; i < leng-1;i ++){
+        console.log(testarr[i],testarr[i+1])
+        
+    }
+}
+functest(testarr)
 
 console.log(Number(false))
 
@@ -882,7 +893,7 @@ console.log(score)
 //  Nếu compareFunction(a, b) trả về < 0 thì a sẽ đứng trước b.
 // Nếu compareFunction(a, b) trả về > 0 thì a sẽ đứng sau b.
 // Nếu compareFunction(a, b) trả về = 0 thì không sắp xếp (giữ nguyên thứ tự).
-var yyy=['a','A','a', 'Apples', 'Watermelon', 'Bananas', 'cherries','b', 'Ba', 'c', 'd', 'CC']
+var yyy=['a','A','aaa', 'Apples', 'Watermelon', 'Bananas', 'cherries','b', 'Ba', 'c', 'd', 'CC']
 console.log(yyy.sort(function(a,b){return a.localeCompare(b,'en',{sensitivity:'base'})}))
 console.log(yyy.sort((a,b)=> a.localeCompare(b,'en',{ sensitivity:'base'})))
 console.log( 0 ||  'weak')
